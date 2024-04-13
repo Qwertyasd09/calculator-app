@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Window from "./Window";
 import Button from "./Button";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 
 const ACTIONS = {
     ADD_DIGIT: "add-digit",
@@ -60,7 +60,6 @@ function reducer(state, { type, payload }) {
 
 export default function Wrapper() {
 
-    const [theme, setTheme] = useState()
     const [{ result }, dispatch] = useReducer(reducer, { operation: ["+", "-", "/", "x"] });
 
     const btns = [
