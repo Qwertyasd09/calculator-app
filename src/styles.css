@@ -5,7 +5,6 @@
 /* VARIABLES */
 
 :root {
-
   /* THEME 1 */
 
   /* BACKGROUNDS */
@@ -14,8 +13,6 @@
   --bg-clr-screen: hsl(224, 36%, 15%);
   
   /* KEYS */
-  --bg-clr-key: hsl(30, 25%, 89%);
-  --shadow-clr-key: hsl(28, 16%, 65%);
 
   --bg-clr-key-del-reset: hsl(225, 21%, 49%);
   --shadow-clr-key-del-reset: hsl(224, 28%, 35%);
@@ -23,15 +20,75 @@
   --bg-clr-key-equal-toggle: hsl(6, 63%, 50%);
   --shadow-clr-key-equal: hsl(6, 70%, 34%);
 
+  --bg-clr-key: hsl(30, 25%, 89%);
+  --shadow-clr-key: hsl(28, 16%, 65%);
+
   /* TEXT */
   --clr-primary: hsl(221, 14%, 31%);
   --clr-secondary: hsl(0, 0%, 100%);
+  --clr-window-header: hsl(0, 0%, 100%);
+  --clr-equal: hsl(0, 0%, 100%);
   
-
-
+  --fs-title: 1.875rem;
   --fs-numbers: 2rem;
-
+  --fs-reset-del: 1.563rem;
   --font-family-body: "League Spartan", sans-serif, Arial;
+  --min-width-app: 31.25rem;
+
+  --height-input: 0.938rem;
+  --width-input: 0.938rem;
+}
+
+/* THEME 2 */
+
+body[data-theme="theme-two"] {
+  /* BACKGROUNDS */
+  --bg-clr-main: hsl(0, 0%, 90%);
+  --bg-clr-toggle-keypad: hsl(0, 5%, 81%);
+  --bg-clr-screen: hsl(0, 0%, 93%);
+  
+  /* KEYS */
+
+  --bg-clr-key-del-reset: hsl(185, 42%, 37%);
+  --shadow-clr-key-del-reset: hsl(185, 58%, 25%);
+
+  --bg-clr-key-equal-toggle: hsl(25, 98%, 40%);
+  --shadow-clr-key-equal: hsl(25, 99%, 27%);
+
+  --bg-clr-key: hsl(45, 7%, 89%);
+  --shadow-clr-key: hsl(35, 11%, 61%);
+
+  /* TEXT */
+  --clr-primary: hsl(60, 10%, 19%);
+  --clr-secondary: hsl(0, 0%, 100%);
+  --clr-window-header: hsl(60, 10%, 19%);
+  --clr-equal: hsl(0, 0%, 100%);
+}
+
+/* THEME THREE */
+body[data-theme="theme-three"] {
+
+  /* BACKGROUNDS */
+  --bg-clr-main: hsl(268, 75%, 9%);
+  --bg-clr-toggle-keypad: hsl(268, 71%, 12%);
+  --bg-clr-screen: hsl(268, 71%, 12%);
+  
+  /* KEYS */
+
+  --bg-clr-key-del-reset: hsl(281, 89%, 26%);
+  --shadow-clr-key-del-reset: hsl(285, 91%, 52%);
+
+  --bg-clr-key-equal-toggle: hsl(176, 100%, 44%);
+  --shadow-clr-key-equal: hsl(177, 92%, 70%);
+
+  --bg-clr-key: hsl(268, 47%, 21%);
+  --shadow-clr-key: hsl(290, 70%, 36%);
+
+  /* TEXT */
+  --clr-primary: hsl(52, 100%, 62%);
+  --clr-secondary: hsl(0, 0%, 100%);
+  --clr-window-header: hsl(52, 100%, 62%);
+  --clr-equal: hsl(198, 20%, 13%);
 }
 
 /* RESET */
@@ -68,6 +125,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--bg-clr-main);
+  transition: 1s;
 }
 
 /* responsive images/videos */
@@ -83,10 +141,10 @@ video {
 /* APP */
 
 .app {
-  min-width: 500px;
+  min-width: var(--min-width-app);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 /* HEADER */
@@ -95,31 +153,31 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  color: var(--clr-secondary);
+  color: var(--clr-window-header);
 }
 
 .title {
-  font-size: 30px;
+  font-size: var(--fs-title);
   line-height: 0.6;
 }
 
 .label-theme {
-  font-size: 10px;
+  font-size: 0.625rem;
   margin-left: auto;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
   line-height: 1;
-  margin-right: 20px;
-  letter-spacing: 2px;
+  margin-right: 1.25rem;
+  letter-spacing: 0.125rem;
 }
 
 input {
-  height: 15px;
-  width: 15px;
+  height: var(--height-input);
+  width: var(--width-input);
   appearance: none;
   background-color: black;
   border-radius: 50%;
   opacity: 0;
-  margin: 4px 4px;
+  margin: 0.25rem;
 }
 
 input:hover {
@@ -127,17 +185,43 @@ input:hover {
 }
 
 .tri-state-toggle {
-  margin-top: 3px;
-  max-width: 75px;
+  margin-top: 0.188rem;
+  max-width: 4.688rem;
   display: flex;
   justify-content: center;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   background-color: var(--bg-clr-toggle-keypad);
+}
+
+[data-theme="theme-two"] {
+  #one {
+    opacity: 0;
+  }
+  #two {
+    opacity: 1;
+    transition: 1s;
+  }
+  #three {
+    opacity: 0;
+  }
+}
+
+[data-theme="theme-three"] {
+  #one {
+    opacity: 0;
+  }
+  #two {
+    opacity: 0;
+  }
+  #three {
+    opacity: 1;
+    transition: 1s;
+  }
 }
 
 #one {
   opacity: 1;
-  background-color: var(--bg-clr-key-equal-toggle);
+  transition: 1s;
 }
 
 #two {
@@ -148,11 +232,15 @@ input:hover {
   opacity: 0;
 }
 
+input[type="radio"] {
+  background-color: var(--bg-clr-key-equal-toggle);
+}
+
 .label-number-theme {
-  font-size: 12px;
-  max-width: 75px;
+  font-size: 0.75rem;
+  max-width: 4.688rem;
   display: flex;
-  gap: 6px;
+  gap: 0.375rem;
   justify-content: space-evenly;
 }
 
@@ -163,10 +251,10 @@ input:hover {
   display: grid;
   grid-gap: 25px 20px;
   grid-template-columns: repeat(4, 1fr);
-  border-radius: 12px;
-  padding: 10px;
+  border-radius: 0.75rem;
+  padding: 0.625rem;
   background-color: var(--bg-clr-toggle-keypad);
-  padding: 30px;
+  padding: 1.875rem;
 }
 
 .btn-RESET, .btn-EQUAL {
@@ -183,14 +271,14 @@ input:hover {
 }
 
 .btn-RESET, .btn-DEL {
-  font-size: 25px;
+  font-size: var(--fs-reset-del);
   color: var(--clr-secondary);
   background-color: var(--bg-clr-key-del-reset);
   box-shadow: inset 0px -5px 0px 0px var(--shadow-clr-key-del-reset);
 }
 
 .btn-EQUAL {
-  color: var(--clr-secondary);
+  color: var(--clr-equal);
   background-color: var(--bg-clr-key-equal-toggle);
   box-shadow: inset 0px -5px 0px 0px var(--shadow-clr-key-equal);
 }
@@ -205,8 +293,8 @@ input:hover {
   padding: 35px 30px;
   background-color: var(--bg-clr-screen);
   font-size: 50px;
-  color: var(--clr-secondary);
+  color: var(--clr-window-header);
   border-radius: 12px;
-  margin-top: 20px;
-  min-height: 120px;
+  margin-top: 1.25rem;
+  min-height: 7.5rem;
 }

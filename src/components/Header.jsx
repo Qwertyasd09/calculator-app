@@ -1,4 +1,5 @@
-export default function Header() {
+export default function Header({ handleClickTheme }) {
+    
     return (
         <header>
             <h1 className="title">calc</h1>
@@ -11,9 +12,9 @@ export default function Header() {
                 </div>
                 
                 <div className="tri-state-toggle">
-                    <input className="button" type="radio" name="toggle" id="one" />
-                    <input className="button" type="radio" name="toggle" id="two" />
-                    <input className="button" type="radio" name="toggle" id="three" />
+                    <input onClick={handleClickTheme} className="button" type="radio" name="toggle" id="one" value="theme-one" />
+                    <input onClick={handleClickTheme} className="button" type="radio" name="toggle" id="two" value="theme-two" />
+                    <input onClick={handleClickTheme} className="button" type="radio" name="toggle" id="three" value="theme-three" />
                 </div>
             </div>
         </header>
