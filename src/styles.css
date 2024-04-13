@@ -1,0 +1,212 @@
+/* IMPORT FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+
+/* VARIABLES */
+
+:root {
+
+  /* THEME 1 */
+
+  /* BACKGROUNDS */
+  --bg-clr-main: hsl(222, 26%, 31%);
+  --bg-clr-toggle-keypad: hsl(223, 31%, 20%);
+  --bg-clr-screen: hsl(224, 36%, 15%);
+  
+  /* KEYS */
+  --bg-clr-key: hsl(30, 25%, 89%);
+  --shadow-clr-key: hsl(28, 16%, 65%);
+
+  --bg-clr-key-del-reset: hsl(225, 21%, 49%);
+  --shadow-clr-key-del-reset: hsl(224, 28%, 35%);
+
+  --bg-clr-key-equal-toggle: hsl(6, 63%, 50%);
+  --shadow-clr-key-equal: hsl(6, 70%, 34%);
+
+  /* TEXT */
+  --clr-primary: hsl(221, 14%, 31%);
+  --clr-secondary: hsl(0, 0%, 100%);
+  
+
+
+  --fs-numbers: 2rem;
+
+  --font-family-body: "League Spartan", sans-serif, Arial;
+}
+
+/* RESET */
+
+/* makes sizing simpler */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* dark mode user-agent-styles */
+
+html {
+  color-scheme: dark light;
+}
+
+/* min body height */
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family-body);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-clr-main);
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* APP */
+
+.app {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: var(--clr-secondary);
+}
+
+.title {
+  font-size: 30px;
+  line-height: 0.6;
+}
+
+.label-theme {
+  font-size: 10px;
+  margin-left: auto;
+  margin-bottom: 4px;
+  line-height: 1;
+  margin-right: 20px;
+  letter-spacing: 2px;
+}
+
+input {
+  height: 15px;
+  width: 15px;
+  appearance: none;
+  background-color: black;
+  border-radius: 50%;
+  opacity: 0;
+  margin: 4px 4px;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+.tri-state-toggle {
+  margin-top: 3px;
+  max-width: 75px;
+  display: flex;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: var(--bg-clr-toggle-keypad);
+}
+
+#one {
+  opacity: 1;
+  background-color: var(--bg-clr-key-equal-toggle);
+}
+
+#two {
+  opacity: 0;
+}
+
+#three {
+  opacity: 0;
+}
+
+.label-number-theme {
+  font-size: 12px;
+  max-width: 75px;
+  display: flex;
+  gap: 6px;
+  justify-content: space-evenly;
+}
+
+
+/* WRAPPER BTNS */
+
+.btns-wrapper {
+  display: grid;
+  grid-gap: 25px 20px;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 12px;
+  padding: 10px;
+  background-color: var(--bg-clr-toggle-keypad);
+  padding: 30px;
+}
+
+.btn-RESET, .btn-EQUAL {
+  grid-column: span 2; 
+}
+
+.btn {
+  background-color: var(--bg-clr-key);
+  font-size: var(--fs-numbers);
+  padding: 15px;
+  border-radius: 12px;
+  color: var(--clr-primary);
+  box-shadow: inset 0px -5px 0px 0px var(--shadow-clr-key);
+}
+
+.btn-RESET, .btn-DEL {
+  font-size: 25px;
+  color: var(--clr-secondary);
+  background-color: var(--bg-clr-key-del-reset);
+  box-shadow: inset 0px -5px 0px 0px var(--shadow-clr-key-del-reset);
+}
+
+.btn-EQUAL {
+  color: var(--clr-secondary);
+  background-color: var(--bg-clr-key-equal-toggle);
+  box-shadow: inset 0px -5px 0px 0px var(--shadow-clr-key-equal);
+}
+
+/* WINDOW */
+
+.window {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  line-height: 1;
+  padding: 35px 30px;
+  background-color: var(--bg-clr-screen);
+  font-size: 50px;
+  color: var(--clr-secondary);
+  border-radius: 12px;
+  margin-top: 20px;
+  min-height: 120px;
+}
